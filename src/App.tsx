@@ -56,7 +56,7 @@ function App() {
 
   // useEffect(() => {
   //   const getData = async () => {
-  //     // const response = await fetch('http://localhost:5000/players')
+  //     const response = await fetch('http://localhost:5000/players')
   //     setData(await response.json())
   //   }
 
