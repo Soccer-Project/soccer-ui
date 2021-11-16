@@ -6,11 +6,14 @@ import {
     Th,
     Td,
     TableCaption,
+    Link
 } from "@chakra-ui/react"
+
+import { Link as LinkRouter } from "react-router-dom"
 
 interface IPlayer {
     data_season_id?: string,
-    player_id: string,
+    players_player_id: string,
     players_name?: string,
     games: number,
     goals: number,
@@ -52,12 +55,18 @@ const Table = ({ data, columns }: ITable) => {
             <Tbody>
             {data.map( player => {
                 return(
-                <Tr key={player.player_id}>
-                    { player.seasonId && <Td>{player.seasonId?.name}</Td> }
-                    { player.players_name && <Td>{player.players_name}</Td>}
-                    <Td>{player.games}</Td>
-                    <Td>{player.goals}</Td>
-                </Tr>
+                    <Tr key={player.players_player_id}>
+                        { player.seasonId && <Td>{player.seasonId?.name}</Td> }
+                        { player.players_name && 
+                            <Td>
+                                <Link as={LinkRouter} to={`/${player.players_player_id}`} >
+                                    {player.players_name}
+                                </Link>
+                            </Td>
+                        }
+                        <Td>{player.games}</Td>
+                        <Td>{player.goals}</Td>
+                    </Tr>
                 )
             })}
             </Tbody>

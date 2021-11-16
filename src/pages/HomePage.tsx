@@ -13,6 +13,8 @@ const HomePage = () => {
         getData()
     }, []);
 
+    console.log(data)
+
     return (
         <Table 
             columns={['Player', 'Games', 'Goals']}
