@@ -33,7 +33,10 @@ describe('Table', () => {
         } 
     ]
     it('should render table with components', () => {
-        render(<Table data={mockPlayers}/>)
+        render(<Table
+                columns = {['Player', 'Games', 'Goals']}
+                data={mockPlayers}
+            />)
 
         const th = screen.getAllByRole('row')
 

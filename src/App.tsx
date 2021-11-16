@@ -1,30 +1,20 @@
-import { useState, useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import {
   ChakraProvider,
   Heading
 } from "@chakra-ui/react";
+import MainRoutes from './routes';
 
-import Table from './components/Table/Table';
 
 function App() {
-
-  const [data, setData] = useState([])
-
-  useEffect(() => {
-    const getData = async () => {
-      const response = await fetch('https://soccerprojectapi.herokuapp.com/players')
-      setData(await response.json())
-    }
-
-    getData()
-  }, []);
-
   return (
     <ChakraProvider>
-      <Heading size="xs">
-        Soccer project
-      </Heading>
-      <Table data={data}/>
+      <BrowserRouter>
+        <Heading size="xs">
+          Soccer project
+        </Heading>
+        <MainRoutes />
+      </BrowserRouter>
     </ChakraProvider>
   );
 }
