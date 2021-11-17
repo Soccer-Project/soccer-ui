@@ -41,7 +41,7 @@ const Table = ({ data, columns }: ITable) => {
             <Tbody>
             {data.map( player => {
                 return(
-                    <Tr key={player.players_player_id}>
+                    <Tr key={player.data_season_id ? player.data_season_id : player.players_player_id}>
                         { player.seasonId && <Td>{player.seasonId?.name}</Td> }
                         { player.players_name && 
                             <Td>
