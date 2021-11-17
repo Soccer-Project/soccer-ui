@@ -10,22 +10,8 @@ import {
 } from "@chakra-ui/react"
 
 import { Link as LinkRouter } from "react-router-dom"
+import { IPlayer } from "../../interfaces/player.interface"
 
-interface IPlayer {
-    data_season_id?: string,
-    players_player_id: string,
-    players_name?: string,
-    games: number,
-    goals: number,
-    assists: number,
-    playerId?: {
-        name: string
-    },
-    seasonId?: {
-        season_id: string,
-        name: string
-    }
-}
 interface ITable {
     data: IPlayer[],
     columns: string[]
