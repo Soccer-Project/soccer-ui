@@ -16,7 +16,7 @@ const Player = ({ match }: RouteComponentProps<TParams>) => {
         }
 
         getData()
-    }, []);
+    }, [ match ]);
 
     
     return(
