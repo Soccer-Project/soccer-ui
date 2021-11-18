@@ -31,7 +31,7 @@ jobs:
     - name: Run all tests
       run: yarn test
 
-    - name: 'Deploy application'
+    - name: Deploy application
       - uses: jsmrcaga/action-netlify-deploy@master
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
