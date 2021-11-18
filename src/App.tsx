@@ -11,7 +11,7 @@ function App() {
     <ChakraProvider>
       <BrowserRouter>
         <Heading size="xs">
-          Soccer project
+          Soccer
         </Heading>
         <MainRoutes />
       </BrowserRouter>
