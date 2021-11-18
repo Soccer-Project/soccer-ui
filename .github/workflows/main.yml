@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  build:
+  deploy:
 
     runs-on: ubuntu-latest
 
@@ -32,7 +32,7 @@ jobs:
       run: yarn test
 
     - name: Deploy application
-      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+      - uses: jsmrcaga/action-netlify-deploy@master
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
