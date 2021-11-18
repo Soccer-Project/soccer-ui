@@ -1,23 +1,21 @@
 import { useState, useEffect } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import PlayerApi from '../api/player';
 import Table from '../components/Table/Table';
 
-interface TParams {
-    player: string
-}
-
-const Player = ({ match }: RouteComponentProps<TParams>) => {
+const Player = () => {
     const [data, setData] = useState([])
+
+    const { player } = useParams<{ player: string }>()
 
     useEffect(() => {
         const getData = async () => {
-        const response = await fetch(`https://soccerprojectapi.herokuapp.com/players/${match.params.player}`)
-        setData(await response.json())
+        const response = await PlayerApi.getPlayer(player)
+        setData(response)
         }
 
         getData()
-    }, [ match ]);
-
+    }, [player]);
     
     return(
         <Table 
