@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PlayerApi from '../api/player';
 import Table from '../components/Table/Table';
 
 const HomePage = () => {
@@ -6,14 +7,12 @@ const HomePage = () => {
 
     useEffect(() => {
         const getData = async () => {
-        const response = await fetch('https://soccerprojectapi.herokuapp.com/players')
-        setData(await response.json())
+            const response = await await PlayerApi.getAllPlayers()
+            setData(response)
         }
 
         getData()
     }, []);
-
-    console.log(data)
 
     return (
         <Table 
