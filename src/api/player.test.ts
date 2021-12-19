@@ -14,7 +14,7 @@ describe('PlayerApi', () => {
 
         const response = await PlayerApi.getPlayer(mockPlayerData.detailed[0].players_player_id)
 
-        expect(axiosMock.get).toHaveBeenCalledWith(`https://soccerprojectapi.herokuapp.com/players/${mockPlayerData.detailed[0].players_player_id}`)
+        expect(axiosMock.get).toHaveBeenCalledWith(`https://soccerprojectapi.herokuapp.com/player/${mockPlayerData.detailed[0].players_player_id}`)
         expect(response).toMatchObject(mockPlayerData)
     })
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const PlayerApi = {
     getPlayer: async (playerId: string) => {
-        const response = await axios.get(`https://soccerprojectapi.herokuapp.com/players/${playerId}`)
+        const response = await axios.get(`https://soccerprojectapi.herokuapp.com/player/${playerId}`)
         return response.data
     },
     getAllPlayers: async () => {
