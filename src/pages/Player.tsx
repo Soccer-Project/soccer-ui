@@ -2,9 +2,19 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PlayerApi from '../api/player';
 import Table from '../components/Table/Table';
+import { IPlayerData } from '../interfaces/playerData.interface';
 
 const Player = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState<IPlayerData>({
+        detailed: [],
+        total: {
+            players_player_id: '',
+            players_name: '',
+            games: 0,
+            goals: 0,
+            assists: 0
+        }
+    })
 
     const { player } = useParams<{ player: string }>()
 
@@ -20,7 +30,8 @@ const Player = () => {
     return(
         <Table 
             columns={['Season', 'Games', 'Goals']}
-            data={data}
+            data={data.detailed}
+            playerData={data.total}
         />
     )
 }

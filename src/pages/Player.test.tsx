@@ -24,6 +24,6 @@ describe('Player', () => {
     const th = screen.getAllByRole('row')
 
     expect(PlayerApi.getPlayer).toHaveBeenCalledWith('9f32a001-c8ca-48db-8694-41ddf03cd110')
-    expect(th).toHaveLength(3)
+    expect(th).toHaveLength(4)
   })
 })

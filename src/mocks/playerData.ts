@@ -1,7 +1,8 @@
 import { IPlayer } from "../interfaces/player.interface";
+import { IPlayerData } from "../interfaces/playerData.interface";
 
-export const getMockPlayerData = (): IPlayer[] => (
-    [
+export const getMockPlayerData = (): IPlayerData => ({
+    detailed: [
         {
           data_season_id: "3ecb379e-3648-4af1-92c4-bc307c0088e4",
           players_player_id: "9f32a001-c8ca-48db-8694-41ddf03cd110",
@@ -30,8 +31,15 @@ export const getMockPlayerData = (): IPlayer[] => (
             name: "2019"
           }
         }
-    ]
-)
+    ],
+    total: {
+      players_player_id: "1c93d8cc-9890-4475-964f-e58beb84f7c0",
+      players_name: "Vinicius Junior",
+      games: 87,
+      goals: 11,
+      assists: 11
+    }
+  })
 
 export const getMockPlayers = (): IPlayer[] => (
   [

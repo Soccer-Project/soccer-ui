@@ -14,10 +14,11 @@ import { IPlayer } from "../../interfaces/player.interface"
 
 interface ITable {
     data: IPlayer[],
+    playerData?: IPlayer,
     columns: string[]
 }
   
-const Table = ({ data, columns }: ITable) => {
+const Table = ({ data, playerData, columns }: ITable) => {
     return(
         <CTable variant="striped" colorScheme="teal">
             <TableCaption>
@@ -39,22 +40,32 @@ const Table = ({ data, columns }: ITable) => {
             </Tr>
             </Thead>
             <Tbody>
-            {data.map( player => {
-                return(
-                    <Tr key={player.data_season_id ? player.data_season_id : player.players_player_id}>
-                        { player.seasonId && <Td>{player.seasonId?.name}</Td> }
-                        { player.players_name && 
-                            <Td>
-                                <Link as={LinkRouter} to={`/${player.players_player_id}`} >
-                                    {player.players_name}
-                                </Link>
-                            </Td>
-                        }
-                        <Td>{player.games}</Td>
-                        <Td>{player.goals}</Td>
+                {
+                    data.map( player => {
+                        return(
+                            <Tr key={player.data_season_id ? player.data_season_id : player.players_player_id}>
+                                { player.seasonId && <Td>{player.seasonId?.name}</Td> }
+                                { player.players_name && 
+                                    <Td>
+                                        <Link as={LinkRouter} to={`/${player.players_player_id}`} >
+                                            {player.players_name}
+                                        </Link>
+                                    </Td>
+                                }
+                                <Td>{player.games}</Td>
+                                <Td>{player.goals}</Td>
+                            </Tr>
+                        )
+                    })
+                }
+                {
+                    playerData &&
+                    <Tr>
+                        <Td>Total</Td>
+                        <Td>{playerData.games}</Td>
+                        <Td>{playerData.goals}</Td>
                     </Tr>
-                )
-            })}
+                }
             </Tbody>
         </CTable>
     )

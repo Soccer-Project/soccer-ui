@@ -12,9 +12,9 @@ describe('PlayerApi', () => {
     it('should return all data of player', async () => {
         axiosMock.get = jest.fn().mockResolvedValue({ data: mockPlayerData })
 
-        const response = await PlayerApi.getPlayer(mockPlayerData[0].players_player_id)
+        const response = await PlayerApi.getPlayer(mockPlayerData.detailed[0].players_player_id)
 
-        expect(axiosMock.get).toHaveBeenCalledWith(`https://soccerprojectapi.herokuapp.com/players/${mockPlayerData[0].players_player_id}`)
+        expect(axiosMock.get).toHaveBeenCalledWith(`https://soccerprojectapi.herokuapp.com/players/${mockPlayerData.detailed[0].players_player_id}`)
         expect(response).toMatchObject(mockPlayerData)
     })
 

@@ -25,12 +25,13 @@ describe('Table', () => {
         render(<BrowserRouter>
                     <Table
                         columns = {['Season', 'Games', 'Goals']}
-                        data={mockPlayerData}
+                        data={mockPlayerData.detailed}
+                        playerData={mockPlayerData.total}
                     />
                 </BrowserRouter>)
 
         const th = screen.getAllByRole('row')
 
-        expect(th).toHaveLength(3)
+        expect(th).toHaveLength(4)
     })
 })
